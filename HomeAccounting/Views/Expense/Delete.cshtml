@@ -1,0 +1,20 @@
+﻿@model HomeAccounting.Models.Expense
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<br /> <br /> <br />
+<h2>Видалення елемента</h2>
+
+@using (Html.BeginForm("Delete", "Expense", FormMethod.Post, new { id = "expense-form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.Label("ID елемента:")
+        @Html.TextBox("id", null, new { @class = "form-control" }) <!-- Поле для введення id -->
+        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" }) <!-- Виведення повідомлення про помилку -->
+    </div>
+
+    <input type="submit" value="Видалити" class="btn btn-danger" />
+}

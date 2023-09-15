@@ -1,0 +1,32 @@
+﻿@model HomeAccounting.Models.Statistic
+@{
+    ViewBag.Title = "GetTransactionsByPeriod";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Тип</th>
+            <th>Сума</th>
+            <th>Дата</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var income in Model.Incomes)
+        {
+            <tr>
+                <td>Income</td>
+                <td>@income.Amount</td>
+                <td>@income.DateReceived.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+        @foreach (var expense in Model.Expenses)
+        {
+            <tr>
+                <td>Expense</td>
+                <td>@expense.Amount</td>
+                <td>@expense.Date.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

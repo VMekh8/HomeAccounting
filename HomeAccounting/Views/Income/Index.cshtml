@@ -1,0 +1,86 @@
+﻿@model IEnumerable<HomeAccounting.Models.Income>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+}
+
+<head>
+    <style>
+        .income-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .income-list th,
+        .income-list td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #45a049;
+                color: black;
+            }
+
+        .btn-delete {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .btn-delete:hover {
+                background-color: #c0392b;
+                color: black;
+                text-decoration: none;
+            }
+    </style>
+</head>
+<br /> <br /> <br />
+<h1>Доходи</h1>
+
+<div class="income-list">
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Назва</th>
+            <th>Сума</th>
+            <th>Дата</th>
+        </tr>
+        @foreach (var item in ViewBag.Incomes)
+        {
+        <tr>
+            <td><p>@item.Id</p></td>
+            <td><p>@item.Name</p></td>
+            <td><p>@item.Amount</p></td>
+            <td><p>@item.DateReceived</p></td>
+        </tr>
+        }
+    </table>
+</div>
+
+<div class="button-group">
+    <a class="btn" href="@Url.Action("Create")">Додати дохід</a>
+    <a class="btn-delete" href="@Url.Action("Delete")">Видалити дохід</a>
+</div>

@@ -1,0 +1,97 @@
+﻿@model HomeAccounting.Models.Income
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Введення доходів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"] {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 16px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <br /> <br />
+    <h1>Введення доходів</h1>
+    <div class="form-container">
+        @using (Html.BeginForm("Create", "Income", FormMethod.Post, new { id = "income-form" }))
+        {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="id">Id:</label>
+            @Html.EditorFor(model => model.Id)
+            @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="name">Назва:</label>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="amount">Сума:</label>
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="dateReceived">Дата:</label>
+            @Html.EditorFor(model => model.DateReceived)
+            @Html.ValidationMessageFor(m => m.DateReceived, "", new { @class = "text-danger" })
+        </div>
+    <div class="form-group">
+        <input type="submit" value="Додати запис" />
+    </div>
+}
+    </div>
+</body>
+</html>

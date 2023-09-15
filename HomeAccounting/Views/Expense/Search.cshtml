@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<HomeAccounting.Models.Expense>
+
+
+<br /><br /><br />
+<div id="searchresults">
+    <h3>Всі витрати за даною категорією: @Model.First().Category</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Сума</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="@Url.Action("Index")">Повернутися</a>
+</div>

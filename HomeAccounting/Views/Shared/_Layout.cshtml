@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        .image{
+            width: 40px;
+            height: 40px;
+        }
+        .image1
+        {
+            width: 120px;
+            height:40px;
+        }
+    </style>
+</head>
+<body style="background-color: azure">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Облік витрат", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    
+                       
+                        <li>@Html.ActionLink("Доходи", "Index", "Income")</li>
+                        <li>@Html.ActionLink("Витрати", "Index", "Expense")</li>
+                        <li>@Html.ActionLink("Статистика", "Index", "Statistic")</li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>@DateTime.Now.Year, Домашня бухгалтерія</p>
+                    </div>
+                    <div class="col-md-6">
+                        <a style="margin-right: 40px;"href="https://www.instagram.com/mekh.v_/" target="_blank">
+                            <img class="image" src="../../Images/free-icon-instagram-1384031.png" alt="Instagram" />
+                        </a>
+    
+                        <a href="https://dl.guscoll.com/user/profile.php?id=472" target="_blank">
+                            <img class="image1" src="../../Images/Moodle-logo.svg.png" alt="Moodle" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HomeAccounting.Models.Expense">
+    <Position X="1" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAASAAAAAAAABAAAAAAAACAA=</HashCode>
+      <FileName>Models\Expense.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.AccountingContext">
+    <Position X="2.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountingContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.ChartViewModel">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAACAAA=</HashCode>
+      <FileName>Models\ChartViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.ExpenseDBInitializer">
+    <Position X="2.25" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ExpenseDBInitializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.ExpenseListViewModel">
+    <Position X="2.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\ExpenseListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.Income">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAASAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Income.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.IncomeDBInitializer">
+    <Position X="7" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IncomeDBInitializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeAccounting.Models.Statistic">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAACAAAAAAgAAAAAAAACQAAAAQAEAAAAAAA=</HashCode>
+      <FileName>Models\Statistic.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Income" />
+      <Property Name="Expense" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

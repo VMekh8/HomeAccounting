@@ -1,0 +1,128 @@
+﻿@model HomeAccounting.Models.Expense
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Введення витрат</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group input[type="date"],
+            .form-group select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px 16px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-group input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <br /> <br />
+    <h1>Введення витрат</h1>
+    <div class="form-container">
+        @using (Html.BeginForm("Create", "Expense", FormMethod.Post, new { id = "expense-form" }))
+        {
+            
+            @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label for="id">Id:</label>
+            @Html.EditorFor(model => model.Id)
+            @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="name">Назва:</label>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="amount">Сума:</label>
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="category">Категорія:</label>
+            @Html.DropDownListFor(model => model.Category, GetCategories(), "Виберіть категорію")
+            @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="date">Дата:</label>
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(m => m.Date, "", new { @class = "text-danger" })
+        </div>
+            <div class="form-group">
+                <input type="submit" value="Додати запис" />
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+@functions {
+    private List<SelectListItem> GetCategories()
+    {
+        // Повернути список різних категорій
+        return new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Їжа та напої", Value = "Їжа та напої" },
+        new SelectListItem { Text = "Житло", Value = "Житло" },
+        new SelectListItem { Text = "Транспорт", Value = "Транспорт" },
+        new SelectListItem { Text = "Одяг та взуття", Value = "Одяг та взуття" },
+        new SelectListItem { Text = "Здоров'я та медицина", Value = "Здоров'я та медицина" },
+        new SelectListItem { Text = "Розваги та відпочинок", Value = "Розваги та відпочинок" },
+        new SelectListItem { Text = "Подорожі", Value = "Подорожі" },
+        new SelectListItem { Text = "Освіта", Value = "Освіта" },
+        new SelectListItem { Text = "Побутові витрати", Value = "Побутові витрати" },
+        new SelectListItem { Text = "Платежі за комунальні послуги", Value = "Платежі за комунальні послуги" },
+        new SelectListItem { Text = "Борги та кредити", Value = "Борги та кредити" }
+        
+        // Додати інші категорії за необхідністю
+    };
+    }
+}
